@@ -1,0 +1,70 @@
+<div class="white-overlay"></div>
+<div class="spinner"></div>
+<div class="top-charts-container">
+
+    <header>
+        <div class="charts-container header-container">
+            <section class="row header">
+                <ul class="list-inline text-center list-header">
+                    <li class="col-xs-4">Categories</li>
+                    <li class="col-xs-4">Top Charts</li>
+                    <li class="col-xs-4">
+                        <div class="nav-toggle"><span></span></div>
+                    </li>
+                </ul>
+                <ul class="navigation text-center">
+                    <li class="navigation-option">Menu item</li>
+                    <li class="navigation-option">Menu item</li>
+                    <li class="navigation-option">Menu item</li>
+                    <li class="navigation-option">Menu item</li>
+                </ul>
+            </section> <!-- close .header -->
+            <section class="row chart-options">
+                <ul class="list-inline list-chart-options text-center">
+                    <li class="col-xs-4 chart-option option-paid"><a href="/top_paid">Paid</a></li>
+                    <li class="col-xs-4 chart-option option-free"><a href="/top_free">Free</a></li>
+                    <li class="col-xs-4 chart-option option-all active"><a href="/top_all">Top All</a></li>
+                </ul>
+            </section> <!-- close .chart-options -->
+        </div> <!-- close .header-container -->
+    </header>
+
+    <main>
+        <div class="charts-container main-container">
+
+        </div><!--  close .main-container -->
+    </main>
+
+    <script id="renderIndexPage" type="x-handebars-template">
+        {{#each all_apps}}
+            <section class="row row-app">
+                <div class="col-xs-1 app-number">
+                    <span>{{appNumber @index}}</span>
+                </div>
+                <div class="col-xs-9 app-info">
+                    <div class="col-xs-3 image-wrapper">
+                        <img src="{{app_icon}}" alt="">
+                    </div>
+                    <div class="col-xs-9 info-wrapper">
+                        <h3 class="app-title">{{app_name}}</h3>
+                        <p class="app-category">{{category}}</p>
+                        <div class="app-star-rating" value="{{rating}}">
+                            {{{starRating rating}}}
+                        </div>
+                        <span class="app-count-rating">({{country_ratings}})</span>
+                    </div>
+                </div>
+                <div class="col-xs-2 app-btn">
+                    {{#ifCond price app_url}}
+
+                    {{else}}
+
+                    {{/ifCond}}
+                </div>
+            </section>
+        {{/each}}
+    </script>
+
+    <i class="fa fa-arrow-up fa-4 scroll-up-arrow"></i>
+
+</div> <!-- close .top-charts-container -->
